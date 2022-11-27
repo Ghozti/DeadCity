@@ -61,8 +61,9 @@ public class Launcher implements Screen {
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         update();
-        batch.begin();
         batch.setProjectionMatrix(cam.combined);
+
+        batch.begin();
         mapSprite.draw(batch);
         batch.end();
     }
