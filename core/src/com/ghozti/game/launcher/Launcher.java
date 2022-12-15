@@ -9,13 +9,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Circle;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import org.w3c.dom.Text;
 
 public class Launcher implements Screen {
 
@@ -34,7 +29,7 @@ public class Launcher implements Screen {
         mapSprite.setPosition(0, 0);
         mapSprite.setSize(374, 328);
         cam = new OrthographicCamera();
-        viewPort = new StretchViewport(25,25,cam);
+        viewPort = new StretchViewport(40,40,cam);
     }
 
     public void update(){
