@@ -2,12 +2,14 @@ package com.ghozti.game.backend.entities.player;
 
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.ghozti.game.backend.entities.Entity;
 
 public class Player extends Entity implements InputProcessor {
 
-    public Player(Texture texture, float startX, float startY) {
-        super(texture, startX, startY);
+
+    public Player(Texture texture, float startX, float startY, float width, float height, Batch batch) {
+        super(texture, startX, startY, width, height, batch);
     }
 
     @Override
