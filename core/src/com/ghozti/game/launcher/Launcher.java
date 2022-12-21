@@ -38,16 +38,16 @@ public class Launcher implements Screen {
 
     private void handleInput() {
         if (Gdx.input.isKeyPressed(Input.Keys.W)){
-            cam.position.y += 10;
+            cam.position.y += 5;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.A)){
-            cam.position.x -= 10;
+            cam.position.x -= 5;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.S)){
-            cam.position.y -= 10;
+            cam.position.y -= 5;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.D)){
-            cam.position.x += 10;
+            cam.position.x += 5;
         }
         cam.update();
     }
