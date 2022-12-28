@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.ghozti.game.backend.utils.HitBox;
 
 public abstract class Entity {
 
@@ -17,8 +18,8 @@ public abstract class Entity {
     //game attributes
     float health;
     float movementSpeed;
-    Rectangle bodyHitbox;
-    Rectangle headHitbox;
+    HitBox bodyHitbox;
+    HitBox headHitbox;
 
     public Entity(Texture texture, float startX, float startY, float width, float height, Batch batch){
         this.texture = texture;
@@ -28,7 +29,7 @@ public abstract class Entity {
         this.batch = batch;
     }
 
-    public void setGameAttributes(float health,float movementSpeed, Rectangle bodyHitbox, Rectangle headHitbox){
+    public void setGameAttributes(float health,float movementSpeed, HitBox bodyHitbox, HitBox headHitbox){
         this.health = health;
         this.movementSpeed = movementSpeed;
         this.bodyHitbox = bodyHitbox;
@@ -71,11 +72,11 @@ public abstract class Entity {
         return movementSpeed;
     }
 
-    public Rectangle getBodyHitbox() {
+    public HitBox getBodyHitbox() {
         return bodyHitbox;
     }
 
-    public Rectangle getHeadHitbox() {
+    public HitBox getHeadHitbox() {
         return headHitbox;
     }
 
@@ -103,11 +104,11 @@ public abstract class Entity {
         this.movementSpeed = movementSpeed;
     }
 
-    public void setBodyHitbox(Rectangle bodyHitbox) {
+    public void setBodyHitbox(HitBox bodyHitbox) {
         this.bodyHitbox = bodyHitbox;
     }
 
-    public void setHeadHitbox(Rectangle headHitbox) {
+    public void setHeadHitbox(HitBox headHitbox) {
         this.headHitbox = headHitbox;
     }
 
