@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.ghozti.game.backend.entities.player.Player;
 
 public class Launcher implements Screen {
 
@@ -21,6 +22,8 @@ public class Launcher implements Screen {
     Sprite mapSprite;
     float rotationSpeed;
 
+    Player player;
+
     @Override
     public void show() {
         batch = new SpriteBatch();
@@ -29,28 +32,34 @@ public class Launcher implements Screen {
         mapSprite.setPosition(0, 0);
         mapSprite.setSize(374, 328);
         cam = new OrthographicCamera();
-        viewPort = new StretchViewport(40,40,cam);
+        viewPort = new StretchViewport(374,328,cam);
+
+        player = new Player(new Texture(Gdx.files.internal("playerStand.png")), 60,60,64,64,batch);
+        player.setGameAttributes(100,1.5f,null,null);
+        Gdx.input.setInputProcessor(player);
     }
 
     public void update(){
-        handleInput();
+        //handleInput();
+        player.update();
+
     }
 
-    private void handleInput() {
-        if (Gdx.input.isKeyPressed(Input.Keys.W)){
-            cam.position.y += 5;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.A)){
-            cam.position.x -= 5;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.S)){
-            cam.position.y -= 5;
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.D)){
-            cam.position.x += 5;
-        }
-        cam.update();
-    }
+    //private void handleInput() {
+    //    if (Gdx.input.isKeyPressed(Input.Keys.W)){
+    //        cam.position.y += 5;
+    //    }
+    //    if (Gdx.input.isKeyPressed(Input.Keys.A)){
+    //        cam.position.x -= 5;
+    //    }
+    //    if (Gdx.input.isKeyPressed(Input.Keys.S)){
+    //        cam.position.y -= 5;
+    //    }
+    //    if (Gdx.input.isKeyPressed(Input.Keys.D)){
+    //        cam.position.x += 5;
+    //    }
+    //    cam.update();
+    //}
 
     @Override
     public void render(float delta) {
@@ -60,6 +69,7 @@ public class Launcher implements Screen {
 
         batch.begin();
         mapSprite.draw(batch);
+        player.draw();
         batch.end();
     }
 

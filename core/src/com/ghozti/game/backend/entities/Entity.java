@@ -10,16 +10,18 @@ import com.ghozti.game.backend.utils.HitBox;
 public abstract class Entity {
 
     //attributes
-    Texture texture;//change to textureRegion
-    Vector2 position;
-    float width, height;
-    Batch batch;
+    protected Texture texture;//change to textureRegion
+    protected Vector2 position;
+    protected float width, height;
+    protected Batch batch;
 
-    //game attributes
-    float health;
-    float movementSpeed;
-    HitBox bodyHitbox;
-    HitBox headHitbox;
+   //game attributes
+    protected float health;
+    protected float movementSpeed;
+    protected HitBox bodyHitbox;
+    protected HitBox headHitbox;
+    protected float xDirection, yDirection;
+    protected boolean moveUp, moveDown, moveLeft, moveRight;
 
     public Entity(Texture texture, float startX, float startY, float width, float height, Batch batch){
         this.texture = texture;
@@ -34,6 +36,10 @@ public abstract class Entity {
         this.movementSpeed = movementSpeed;
         this.bodyHitbox = bodyHitbox;
         this.headHitbox = headHitbox;
+    }
+
+    public void update(){
+
     }
 
     public Texture getTexture(){
@@ -121,7 +127,7 @@ public abstract class Entity {
     }
 
     public void draw(){
-        batch.draw(texture,position.x,position.y);
+        batch.draw(texture,position.x,position.y,width,height);
     }
 
 
